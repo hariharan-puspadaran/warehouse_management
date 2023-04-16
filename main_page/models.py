@@ -22,7 +22,6 @@ class Product(models.Model):
     
 class inbound_order(models.Model):
     reference = models.CharField(max_length=50,null=True)
-    staff = models.ForeignKey(User, models.CASCADE, null=True)
     quantity = models.PositiveSmallIntegerField(null=True)
     date = models.DateField(null=True)
     sku = models.CharField(max_length=50,null=True)
@@ -30,14 +29,13 @@ class inbound_order(models.Model):
     remarks = models.CharField(max_length=100,null=True,blank=True)
     
     def __str__(self):
-        return f'{self.product}-{self.staff.username}'
+        return f'{self.reference}-{self.date}'
     
     class Meta:
         verbose_name_plural = "Inbound Orders"
     
 class outbound_order(models.Model):
     reference = models.CharField(max_length=50,null=True)
-    staff = models.ForeignKey(User, models.CASCADE, null=True)
     quantity = models.PositiveSmallIntegerField(null=True)
     date = models.DateField(null = True)
     destination = models.CharField(max_length=50,null=True)
@@ -45,7 +43,7 @@ class outbound_order(models.Model):
     sku = models.CharField(max_length=50,null=True)
     
     def __str__(self):
-        return f'{self.product}-{self.staff.username}'
+        return f'{self.reference}-{self.date}'
 
     class Meta:
         verbose_name_plural = "Outbound Orders"

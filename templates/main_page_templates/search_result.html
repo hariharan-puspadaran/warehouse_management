@@ -16,8 +16,10 @@
                         <thead class="bg-info">
                             <tr class="text-white">
                                 <th scope="col">Name</th>
+                                <th scope="col">SKU</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col">Supplier</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,8 +30,10 @@
                             {% for item in data %}
                             <tr>
                                 <td>{{ item.name }}</td>
+                                <td>{{ item.sku }}</td>
                                 <td>{{ item.category }}</td>
                                 <td>{{ item.quantity }}</td>
+                                <td>{{ item.supplier }}</td>
                             </tr>
                             {% endfor %}
                             {% endif %}
