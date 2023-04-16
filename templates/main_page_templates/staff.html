@@ -1,0 +1,39 @@
+{% extends "partials/base.html" %}
+{% block title %}Staff Page {% endblock %}
+
+{% block content%}
+    {% include "partials/topnav.html" %}
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employee%}
+                        <tr>
+                            <th scope="row"><a class="btn btn-info btn-sm" href='{% url "main_page-staff-detail" employee.id %}'>View</a></th>
+                            <td>{{ employee.username }}</td>
+                            <td>{{ employee.email }}</td>
+                            <td>{{ employee.profile.phone }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--End Table-->
+{%endblock %}

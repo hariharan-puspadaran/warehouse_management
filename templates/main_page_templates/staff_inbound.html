@@ -1,0 +1,42 @@
+{% extends "partials/base.html" %}
+{% block title %}Staff Page {% endblock %}
+
+{% block content%}
+{% include "main_page_templates/staff_index.html" %}
+<br>
+    <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                Inbound Orders Records
+                <a class="btn btn-info btn-sm" href="{% url "main_page-inbound" %}">Add Inbound Order</a>
+            </div>
+            <div class="card-body">
+                <table class="table bg-white">
+                    <thead class="bg-info text-white">
+                        <tr>
+                            <th scope="col">Reference</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">SKU</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>  
+                        {% for inbounds in inbound %}       
+                        <tr>
+                            <td>{{ inbounds.reference }}</td>
+                            <td>{{ inbounds.date }}</td>
+                            <td>{{ inbounds.sku }}</td>
+                            <td>{{ inbounds.quantity }}</td>
+                            <td>{{ inbounds.location }}</td>
+                            <td>{{ inbounds.remarks }}</td>
+                        </tr> 
+                        {% endfor %}                         
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{%endblock %}

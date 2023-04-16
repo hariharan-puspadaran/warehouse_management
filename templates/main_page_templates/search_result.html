@@ -1,0 +1,42 @@
+{% extends "partials/base.html" %}
+{% block title %}Search Page {% endblock %}
+
+{% block content%}
+    <center>
+        <br>
+        <h4>{{ result }}</h4>
+        {% if searched%}
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    Inventory
+                </div>
+                <div class="card-body">
+                    <table class="table bg-white">
+                        <thead class="bg-info">
+                            <tr class="text-white">
+                                <th scope="col">Name</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if total == 0 %}
+                            <h4>No results found</h4>
+                            {% else %}
+                            <h4> There were {{total}} result(s)</h4>
+                            {% for item in data %}
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.category }}</td>
+                                <td>{{ item.quantity }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+{%endblock %}

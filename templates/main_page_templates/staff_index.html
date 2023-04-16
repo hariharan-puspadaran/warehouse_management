@@ -1,0 +1,34 @@
+
+<br>
+<div class="col-md-6 mx-auto">
+    <div class="card ms-auto">
+        <div class="card-header bg-info text-white">
+            Directory
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="text-decoration-none text-dark" href="{% url 'staff_inbound' %}">
+                        <div class="card my-card shadow text-center p-3">
+                            <h4>Inbound Orders <i class="fas fa-users"></i></h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="text-decoration-none text-dark" href="{% url 'staff_outbound' %}">
+                        <div class="card my-card shadow text-center p-3">
+                            <h4>Outbound Orders <i class="fas fa-box"></i></h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a class="text-decoration-none text-dark" href="{% url 'staff_inventory' %}">
+                        <div class="card my-card shadow text-center p-3">
+                            <h4>Inventory <i class="fas fa-shipping-fast"></i></h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
